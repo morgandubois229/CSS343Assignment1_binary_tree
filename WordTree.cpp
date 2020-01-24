@@ -3,9 +3,11 @@
 //
 #include "WordTree.h"
 #include <string>
+#include<bits/stdc++.h>
+
 
 WordTree::WordTree(string initialWord) {
-    this->root = new WordNode(initialWord);
+    this->root = new WordNode(toLower(initialWord));
 }
 
 void WordTree::destructor(WordNode* currentNode) {
@@ -20,3 +22,34 @@ void WordTree::destructor(WordNode* currentNode) {
 WordTree::~WordTree() {
     destructor(this->root);
 }
+
+bool WordTree::addHelper(WordNode* currentNode, string word) {
+    if (word == currentNode->word) {
+        currentNode->increaseCount();
+        return true;
+    }
+    if (word < currentNode->word) {
+        if (currentNode->left == nullptr) {
+            currentNode->left = new WordNode(word);
+        } else {
+        return addHelper(currentNode->left, word);
+        }
+    } else {
+        if (currentNode->right == nullptr) {
+            currentNode->right = new WordNode(word);
+        } else {
+            return addHelper(currentNode->right, word);
+        }
+    }
+}
+
+bool WordTree::add(string word) {
+    return addHelper(this->root, toLower(word));
+}
+
+string WordTree::toLower(string word) {
+    string temp = word;
+    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+    return temp;
+}
+

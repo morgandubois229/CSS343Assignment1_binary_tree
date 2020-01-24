@@ -11,14 +11,14 @@ using namespace std;
 
 class WordTree : public WordTreeInterface {
     struct WordNode {
-        string name;
+        string word;
         int count;
         WordNode* left;
         WordNode* right;
 
-        WordNode(string n, WordNode* l, WordNode* r): name(n), count(1), left(l), right(r) {}
+        WordNode(string n, WordNode* l, WordNode* r): word(n), count(1), left(l), right(r) {}
 
-        WordNode(string n): name(n), left(nullptr), right(nullptr) {}
+        WordNode(string n): word(n), count(1), left(nullptr), right(nullptr) {}
 
         ~WordNode() {
             left = nullptr;
@@ -43,19 +43,23 @@ class WordTree : public WordTreeInterface {
 
     WordNode* root;
 
+    string toLower(string word);
+
 public:
     WordTree(string initialWord);
 
-    ~WordTree();
+    ~WordTree() override;
 
-    bool add(WordNode toAd);
+    bool add(string word);
 
-    int numWords();
+    int numWords(); //Total number of words
+
+    
 
 protected:
      void destructor(WordNode* currentNode);
 
-     int addHelper(const WordNode* toAd);
+     bool addHelper(WordNode* currentNode, string word);
 
      int* numWordsHelper(const WordNode* currentNode);
 

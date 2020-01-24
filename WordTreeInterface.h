@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <string>
+
 class WordTreeInterface
 {
 public:
@@ -13,7 +15,7 @@ public:
 
     virtual ~WordTreeInterface(){}
 
-    //virtual bool add(const WordTreeInterface &theTree) = 0;
+    virtual bool add(std::string word) = 0;
 
     //virtual int numWords(const WordTreeInterface &theTree) = 0;
 
