@@ -13,7 +13,7 @@ int main() {
     Tree1.add("Cat");
     Tree1.add("James");
 
-
+    std::cout << Tree1.numWords() << std::endl;
 
     return 0;
 }

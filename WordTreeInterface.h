@@ -17,7 +17,7 @@ public:
 
     virtual bool add(std::string word) = 0;
 
-    //virtual int numWords(const WordTreeInterface &theTree) = 0;
+    virtual int numWords() = 0;
 
 };
 

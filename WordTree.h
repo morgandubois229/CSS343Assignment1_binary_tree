@@ -52,16 +52,16 @@ public:
 
     bool add(string word);
 
-    int numWords(); //Total number of words
+    int numWords();
 
-    
+
 
 protected:
      void destructor(WordNode* currentNode);
 
      bool addHelper(WordNode* currentNode, string word);
 
-     int* numWordsHelper(const WordNode* currentNode);
+     int numWordsHelper(const WordNode* currentNode);
 
      string createString(const WordNode* currentNode);
 };

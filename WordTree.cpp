@@ -53,3 +53,20 @@ string WordTree::toLower(string word) {
     return temp;
 }
 
+int WordTree::numWordsHelper(const WordNode* currentNode) {
+    if (currentNode == nullptr) {
+        return 0;
+    }
+    int tempNum = 0;
+    if (currentNode->left != nullptr) {
+        tempNum += numWordsHelper(currentNode->left);
+    }
+    if (currentNode->right != nullptr) {
+        tempNum += numWordsHelper(currentNode->right);
+    }
+    return tempNum + currentNode->count;
+}
+
+int WordTree::numWords() {
+    return numWordsHelper(this->root);
+}
