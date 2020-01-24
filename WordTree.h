@@ -6,6 +6,7 @@
 
 #include "WordTreeInterface.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -52,7 +53,10 @@ public:
 
     int numWords();
 
-
+    friend ostream& operator << (ostream &out, WordTree theTree) {
+        out << createString(theTree.root);
+        return out;
+    }
 
 protected:
      void destructor(WordNode* currentNode);
@@ -61,7 +65,7 @@ protected:
 
      int numWordsHelper(const WordNode* currentNode);
 
-     string createString(const WordNode* currentNode);
+     static string createString(WordNode* currentNode);
 
     string toLower(string word);
 };

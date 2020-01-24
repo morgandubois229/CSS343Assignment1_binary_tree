@@ -73,3 +73,21 @@ int WordTree::numWordsHelper(const WordNode* currentNode) {
 int WordTree::numWords() {
     return numWordsHelper(this->root);
 }
+
+string WordTree::createString(WordNode* currentNode) {
+    string returnString = "";
+    if (currentNode == nullptr) {
+        return "";
+    }
+    if (currentNode->left != nullptr) {
+        returnString.append(createString(currentNode->left));
+    }
+    returnString.append(currentNode->word);
+    returnString.append(" appears: ");
+    returnString.append(to_string(currentNode->count));
+    returnString.append("\n");
+    if (currentNode->right != nullptr) {
+        returnString.append(createString(currentNode->right));
+    }
+    return returnString;
+}

@@ -15,5 +15,7 @@ int main() {
 
     std::cout << Tree1.numWords() << std::endl;
 
+    std::cout << Tree1;
+
     return 0;
 }
