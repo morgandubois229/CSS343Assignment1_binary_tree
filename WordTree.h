@@ -43,8 +43,6 @@ class WordTree : public WordTreeInterface {
 
     WordNode* root;
 
-    string toLower(string word);
-
 public:
     WordTree(string initialWord);
 
@@ -64,6 +62,8 @@ protected:
      int numWordsHelper(const WordNode* currentNode);
 
      string createString(const WordNode* currentNode);
+
+    string toLower(string word);
 };
 
 #endif //ASSIGNMENT_1_WORDTREE_H

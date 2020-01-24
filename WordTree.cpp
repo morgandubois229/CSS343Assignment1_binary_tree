@@ -58,13 +58,16 @@ int WordTree::numWordsHelper(const WordNode* currentNode) {
         return 0;
     }
     int tempNum = 0;
+
+    tempNum += currentNode->count;
+
     if (currentNode->left != nullptr) {
         tempNum += numWordsHelper(currentNode->left);
     }
     if (currentNode->right != nullptr) {
         tempNum += numWordsHelper(currentNode->right);
     }
-    return tempNum + currentNode->count;
+    return tempNum;
 }
 
 int WordTree::numWords() {
