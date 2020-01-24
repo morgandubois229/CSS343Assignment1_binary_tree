@@ -11,7 +11,7 @@ class WordTreeInterface
 public:
     WordTreeInterface(){}
 
-    //virtual ~WordTreeInterface(){}
+    virtual ~WordTreeInterface(){}
 
     //virtual bool add(const WordTreeInterface &theTree) = 0;
 

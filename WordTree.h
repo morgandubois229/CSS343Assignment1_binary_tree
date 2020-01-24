@@ -1,7 +1,6 @@
 //
 // Created by morgan on 1/23/20.
 //
-
 #ifndef ASSIGNMENT_1_WORDTREE_H
 #define ASSIGNMENT_1_WORDTREE_H
 
@@ -20,6 +19,13 @@ class WordTree : public WordTreeInterface {
         WordNode(string n, WordNode* l, WordNode* r): name(n), count(1), left(l), right(r) {}
 
         WordNode(string n): name(n), left(nullptr), right(nullptr) {}
+
+        ~WordNode() {
+            left = nullptr;
+            right = nullptr;
+            delete left;
+            delete right;
+        }
 
         void setLeft(WordNode* theNode) {
             left = theNode;
