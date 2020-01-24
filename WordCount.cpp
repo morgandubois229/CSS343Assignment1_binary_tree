@@ -1,21 +1,18 @@
-#include <iostream>
 #include "WordTree.h"
 
+void readInText() {
+    string holder;
+    cout << "Please enter a string value: ";
+    getline (cin, holder);
+    cout << "The value you entered is " << holder;
+
+}
+
 int main() {
-    std::cout << "Hello, World! It's a bright new day!" << std::endl;
 
-    WordTree Tree1("cat");
+    readInText();
 
-    Tree1.add("Bat");
-    Tree1.add("Hat");
-    Tree1.add("Matt");
-    Tree1.add("Matt");
-    Tree1.add("Cat");
-    Tree1.add("James");
 
-    std::cout << Tree1.numWords() << std::endl;
-
-    std::cout << Tree1;
 
     return 0;
 }
